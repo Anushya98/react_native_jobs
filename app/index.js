@@ -6,16 +6,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   return (
-    <SafeAreaView style = {styles.container}>
+    <View style = {styles.container}>
       <App />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
+    // padding: 24,
     justifyContent:"center"
   },
 //   main: {
@@ -33,3 +33,10 @@ const styles = StyleSheet.create({
 //     color: "#38434D",
 //   },
 });
+
+// import 'react-native-gesture-handler'
+// import { AppRegistry } from 'react-native'
+// import App from './App'
+// import {name as appName} from '../app.json'
+
+// AppRegistry.registerComponent(appName, () => App);

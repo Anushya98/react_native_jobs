@@ -8,14 +8,16 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-  Alert,SafeAreaView
+  Alert, SafeAreaView
 } from "react-native";
+
 
 
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
     // Perform login validation here
@@ -26,30 +28,38 @@ const Login = ({ navigation }) => {
     //   Alert.alert('Error', 'Invalid credentials');
     // }
 
-    navigation.navigate('Dashboard'); 
+    navigation.navigate('Dashboard');
   };
+
+  const toggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Image style={styles.image} source={require("./assets/log2.png")} />  */}
+      <Image style={styles.image} source={require("../assets/images/login-img.png")} />
       <StatusBar style="auto" />
-      <SafeAreaView style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
-        />
-      </SafeAreaView>
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
+          placeholder="Email"
           placeholderTextColor="#003f5c"
-          secureTextEntry={true}
+          onChangeText={(email) => setEmail(email)}
+        />
+      </View>
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Password"
+          placeholderTextColor="#003f5c"
+          secureTextEntry={!showPassword}
           onChangeText={(password) => setPassword(password)}
         />
       </View>
+      <TouchableOpacity onPress={toggleShowPassword} style={styles.showPasswordButton}>
+        <Text style={styles.showPasswordButtonText}>{showPassword ? "Hide" : "Show"} Password</Text>
+      </TouchableOpacity>
       <TouchableOpacity>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
@@ -61,14 +71,18 @@ const Login = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
   image: {
     marginBottom: 40,
+    height: 200,
+    width: 200,
+    borderRadius: 500,
   },
+
   inputView: {
     backgroundColor: "#FFC0CB",
     borderRadius: 30,
@@ -98,6 +112,9 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: "white",
+  },
+  showPasswordButtonText: {
+    color: "#FF1493",
   },
 });
 

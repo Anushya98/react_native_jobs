@@ -5,17 +5,17 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Dashboard from '../components/Dashboard/Dashboard';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Authstack from '../Navigations/Authstack';
+import Appstack from '../Navigations/Appstack';
 
 
 const Stack = createStackNavigator();
 function App() {
     return (
-        <NavigationContainer independent={true} style ={styles.container}>
-        <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} style ={styles.loginContainer}/>
-          <Stack.Screen name="Dashboard" component={Dashboard} style ={styles.loginContainer}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+        <NavigationContainer independent={true} style={styles.container}>
+            {/* <Authstack /> */}
+            <Appstack/>
+        </NavigationContainer>
     );
 }
 
@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-       
+
     },
     loginContainer: {
         justifyContent: 'center',
+        alignItems: "center",
     },
 });
 
