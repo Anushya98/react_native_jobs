@@ -18,18 +18,18 @@ const styles = StyleSheet.create({
     padding: 24,
     justifyContent:"center"
   },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
-  },
+//   main: {
+//     flex: 1,
+//     justifyContent: "center",
+//     maxWidth: 960,
+//     marginHorizontal: "auto",
+//   },
+//   title: {
+//     fontSize: 64,
+//     fontWeight: "bold",
+//   },
+//   subtitle: {
+//     fontSize: 36,
+//     color: "#38434D",
+//   },
 });

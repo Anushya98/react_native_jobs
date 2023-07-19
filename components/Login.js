@@ -10,18 +10,25 @@ import {
   TouchableOpacity,
   Alert,SafeAreaView
 } from "react-native";
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+
+
+const Login = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     // Perform login validation here
-    if (email === 'admin' && password === 'password') {
-      Alert.alert('Success', 'Login successful');
-    } else {
-      Alert.alert('Error', 'Invalid credentials');
-    }
+    // if (email === 'admin' && password === 'password') {
+    //   Alert.alert('Success', 'Login successful');
+    //   navigation.navigate('Dashboard'); // Navigate to the Dashboard screen
+    // } else {
+    //   Alert.alert('Error', 'Invalid credentials');
+    // }
+
+    navigation.navigate('Dashboard'); 
   };
+
   return (
     <SafeAreaView style={styles.container}>
       {/* <Image style={styles.image} source={require("./assets/log2.png")} />  */}
@@ -54,6 +61,7 @@ export default function Login() {
 }
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -92,3 +100,5 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
+
+export default Login;
